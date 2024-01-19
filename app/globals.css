@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply pb-4 sm:pb-8 text-xl sm:text-4xl font-light sm:leading-tight tracking-tight;
+  }
+  h2 {
+    @apply pb-4 sm:pb-8 text-xl sm:text-4xl font-light sm:leading-tight tracking-tight;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+/* body & media-query workaround for tailwind lacking grid-template-areas support? */
+body {
+  display: grid;
+  grid-template-areas:
+    "navigation"
+    "content";
+
+  grid-template-columns: minmax(0, max-content);
+  grid-template-rows: max-content max-content;
+  height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  body {
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "navigation content";
+  }
+}
+
+input[type="search"] {
+  appearance: none !important;
+  border-radius: 0;
+}
